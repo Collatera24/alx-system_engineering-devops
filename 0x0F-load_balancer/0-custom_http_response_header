@@ -4,6 +4,6 @@
 apt -y update
 apt -y install nginx
 ufw allow 'Nginx HTTP'
-header="server_name _;\nadd_header X-Server-By \"$(hostname)\";"
+header="server_name _;\nadd_header X-Served-By \"$(hostname)\";"
 sed -i "s/server_name _;/$header/" /etc/nginx/sites-enabled/default
 service nginx restart
